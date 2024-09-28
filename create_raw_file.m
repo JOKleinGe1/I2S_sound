@@ -1,0 +1,27 @@
+[x,fs] = audioread("batterie_1.wav");
+audiowrite("batterie_32k.wav",x(1:1024*32,:),44100);
+audiowrite("batterie_16k.wav",x(1:1024*16,:),44100);
+audiowrite("batterie_8k.wav",x(1:1024*8,:),44100);
+audiowrite("batterie_4k.wav",x(1:1024*4,:),44100);
+y = round(x(1:1024*32,:)*127+128);
+fid = fopen('batterie32kB_x_2.mem','w');
+fprintf(fid,"%02x %02x\n",y');
+fclose(fid);
+[x,fs] = audioread("guitare.wav");
+audiowrite("guitare_32k.wav",x(1:1024*32,:),44100);
+audiowrite("guitare_16k.wav",x(1:1024*16,:),44100);
+audiowrite("guitare_8k.wav",x(1:1024*8,:),44100);
+audiowrite("guitare_4k.wav",x(1:1024*4,:),44100);
+y = round(x(1:1024*32,:)*127+128);
+fid = fopen('guitare32kB_x_2.mem','w');
+fprintf(fid,"%02x %02x\n",y');
+fclose(fid);
+[x,fs] = audioread("piano_1.wav");
+audiowrite("piano_32k.wav",x(1:1024*32,:),44100);
+audiowrite("piano_16k.wav",x(1:1024*16,:),44100);
+audiowrite("piano_8k.wav",x(1024*8+1:1024*16,:),44100);
+y = round(x(1:1024*32,:)*127+128);
+fid = fopen('piano32kB_x_2.mem','w');
+fprintf(fid,"%02x %02x\n",y');
+fclose(fid);
+
