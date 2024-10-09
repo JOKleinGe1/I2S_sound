@@ -19,9 +19,9 @@ fprintf(fid,"WIDTH=%d;\n",w*8);
 fprintf (fid,"DEPTH=%d;\n",d);
 fprintf (fid,"ADDRESS_RADIX=HEX;\n",d);
 fprintf (fid,"DATA_RADIX=HEX;\n",d);
-fprintf (fid,"CONTENT BEGIN;\n",d);
+fprintf (fid,"CONTENT BEGIN\n",d);
 for i=1:d
-  fprintf(fid,"%06x:%02x%02x\n",i-1,y2c(i,:));
+  fprintf(fid,"%06x:%02x%02x;\n",i-1,y2c(i,:));
 endfor
 fprintf (fid,"END; \n",d);
 fclose(fid);
